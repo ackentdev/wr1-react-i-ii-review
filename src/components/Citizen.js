@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-export default function Citizen({citizen, greeting}){
-    console.log('receiving props: ', citizen)
+export default function Citizen(props){
+    console.log('receiving props: ', props)
     return <div>
-        <h1>Citizen no. {citizen.id}</h1>
-        <p>{greeting} {citizen.firstName} {citizen.lastName}</p>
+        <h1>Citizen no. {props.person.id}</h1>
+        <p>{props.greeting} {props.person.firstName} {props.person.lastName}</p>
         <span>Email: </span>
-        <p>{citizen.email}</p>
+        <p>{props.person.email}</p>
         <span>School:</span>
-        <p>{citizen.school}</p>
+        <p>{props.person.school}</p>
     </div>
 }

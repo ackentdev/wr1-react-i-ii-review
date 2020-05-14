@@ -41,6 +41,7 @@ class App extends Component {
       email,
       school
     }
+    
     this.setState({
       citizens: [...this.state.citizens, newCitizen],
       firstName: '',
@@ -55,8 +56,9 @@ class App extends Component {
     console.log(this.state)
     const {firstName, lastName, school, email} = this.state;
     const citizens = this.state.citizens.map(elem => {
+      console.log('passing props: ', elem)
       return <div>
-        <Citizen greeting='Welcome to Bikini Bottom, 'citizen={elem}/>
+        <Citizen greeting='Welcome to Bikini Bottom, ' person={elem}/>
       </div>
     })
     return (
@@ -69,6 +71,7 @@ class App extends Component {
           school={school}
           email={email}/>
          {citizens}
+         {/* <Citizen greeting="Hello, " person={this.state.citizens[0]}/> */}
       </div>
     );
   }
