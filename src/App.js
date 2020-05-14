@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import Citizen from './components/Citizen';
+import data from './data'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      citizens: []
+    }
+  }
+
+  componentDidMount(){
+    this.setState({
+      citizens: data
+    })
+  }
+
+  render(){
+    console.log(this.state)
+    const citizens = this.state.citizens.map(elem => {
+      return <div>
+        <Citizen greeting='Welcome to Bikini Bottom, 'citizen={elem}/>
+      </div>
+    })
+    return (
+      <div className="App">
+         {citizens}
+      </div>
+    );
+  }
 }
 
 export default App;
